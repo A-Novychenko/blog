@@ -1,0 +1,31 @@
+.footer {
+    font-size: 20px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px -2px 2px 0px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 20px;
+    padding-left: 20px;
+
+    width: 1920px;
+}
+
+.name {
+    margin-left: 20px;
+}
+
+.linkWrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 32px;
+
+    padding: 16px;
+
+}
