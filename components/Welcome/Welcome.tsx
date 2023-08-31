@@ -1,7 +1,9 @@
 import {FC} from "react";
 
-import styles from "./Welcome.module.css";
 import Image from "next/image";
+import Link from "next/link";
+
+import styles from "./Welcome.module.css";
 
 export const Welcome: FC = () => {
   return (
@@ -41,6 +43,9 @@ export const Welcome: FC = () => {
           className={styles.img}
         />
       </div>
+      <Link href="/" className={styles.start_btn}>
+        Get Started
+      </Link>
     </section>
   );
 };

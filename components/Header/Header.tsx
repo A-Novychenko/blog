@@ -9,13 +9,13 @@ export const Header: FC = () => {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        <p>
+        <Link href="/">
           <Logo />
           <span className={styles.name}>Blog</span>
-        </p>
+        </Link>
         <nav className={styles.navWrap}>
-          <Link href="/register">Registration</Link>
-          <Link href="/register">Login</Link>
+          <Link href="/registration">Registration</Link>
+          <Link href="/login">Login</Link>
         </nav>
       </div>
     </header>
