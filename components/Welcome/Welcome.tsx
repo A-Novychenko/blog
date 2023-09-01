@@ -43,7 +43,7 @@ export const Welcome: FC = () => {
           className={styles.img}
         />
       </div>
-      <Link href="/" className={styles.start_btn}>
+      <Link href="/registration" className={styles.start_btn}>
         Get Started
       </Link>
     </section>
