@@ -4,8 +4,17 @@ import {FC} from "react";
 import {Logo} from "../Logo/Logo";
 
 import styles from "./Heder.module.css";
+import {getServerSession} from "next-auth";
 
-export const Header: FC = () => {
+import {authConfig} from "@/configs/auth";
+
+import {NavBar} from "./NavBar";
+
+export const Header: FC = async () => {
+  const session = await getServerSession(authConfig);
+
+  console.log("sessionHeader", session);
+
   return (
     <header className={styles.header}>
       <div className={styles.container}>
@@ -13,10 +22,7 @@ export const Header: FC = () => {
           <Logo />
           <span className={styles.name}>Blog</span>
         </Link>
-        <nav className={styles.navWrap}>
-          <Link href="/registration">Registration</Link>
-          <Link href="/login">Login</Link>
-        </nav>
+        <NavBar />
       </div>
     </header>
   );

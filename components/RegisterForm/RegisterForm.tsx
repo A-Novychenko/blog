@@ -25,16 +25,11 @@ export const RegisterForm = () => {
 
   const {push} = useRouter();
 
-  // const {NEXTAUTH_URL} = process.env;
-
   const [error, setError] = useState("");
 
   const onSubmit: SubmitHandler<Inputs> = async ({email, password, role}) => {
     setError("");
     try {
-      // const res = await fetch("http://localhost:3000/api/user/registration", {
-      // const res = await fetch(`${NEXTAUTH_URL}/api/user/registration`, {
-
       const res = await fetch("/api/user/registration", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
