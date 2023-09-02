@@ -40,6 +40,10 @@ export const RegisterForm = () => {
         body: JSON.stringify({email, password, role}),
       });
 
+      const {data} = await res.json();
+
+      console.log("res", data);
+
       if (res.status === 409) {
         throw new Error("This user already exists");
       }
@@ -50,9 +54,9 @@ export const RegisterForm = () => {
 
       if (res.status === 200) {
         const res = await signIn("login", {
-          email,
-          password,
-          role,
+          email: data.email,
+          password: data.password,
+
           redirect: false,
         });
 
