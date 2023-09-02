@@ -34,6 +34,7 @@ export const RegisterForm = () => {
     try {
       // const res = await fetch("http://localhost:3000/api/user/registration", {
       // const res = await fetch(`${NEXTAUTH_URL}/api/user/registration`, {
+
       const res = await fetch("/api/user/registration", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
