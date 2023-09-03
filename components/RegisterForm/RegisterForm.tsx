@@ -8,14 +8,6 @@ import {useRouter} from "next/navigation";
 import styles from "./RegisterForm.module.css";
 import {useState} from "react";
 
-type Inputs = {
-  email: string;
-  password: string;
-  role: string;
-};
-
-// const { NEXTAUTH_URL } = process.env;
-
 export const RegisterForm = () => {
   const {
     register,
@@ -23,17 +15,19 @@ export const RegisterForm = () => {
     watch,
     reset,
     formState: {errors},
-  } = useForm<Inputs>();
+  } = useForm<InputsRegister>();
 
   const {push} = useRouter();
 
   const [error, setError] = useState("");
 
-  const onSubmit: SubmitHandler<Inputs> = async ({email, password, role}) => {
+  const onSubmit: SubmitHandler<InputsRegister> = async ({
+    email,
+    password,
+    role,
+  }) => {
     setError("");
     try {
-      // const res = await fetch("/api/user/registration", {
-      // const res = await fetch(`${NEXTAUTH_URL}/api/user/registration`, {
       const res = await fetch(
         "https://blog-seven-neon-75.vercel.app//api/user/registration",
         {
@@ -44,8 +38,6 @@ export const RegisterForm = () => {
       );
 
       const {data} = await res.json();
-
-      console.log("res", data);
 
       if (res.status === 409) {
         throw new Error("This user already exists");

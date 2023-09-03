@@ -1,5 +1,6 @@
-import clientPromise from "@/services/mongodb";
 import {NextRequest, NextResponse} from "next/server";
+
+import clientPromise from "@/services/mongodb";
 
 export async function POST(req: Request, res: Response) {
   const client = await clientPromise;

@@ -1,6 +1,7 @@
 import {getServerSession} from "next-auth";
-import {authConfig} from "@/configs/auth";
 import {revalidatePath} from "next/cache";
+
+import {authConfig} from "@/configs/auth";
 import {Form} from "./FormComponent";
 
 import styles from "./CreatePostForm.module.css";
@@ -17,7 +18,6 @@ export const CreatePostForm = async () => {
 
     const title = form.get("title")?.toString();
     const description = form.get("description")?.toString();
-    const owner = userId;
 
     const res = await fetch(`${NEXTAUTH_URL}/api/post/create`, {
       method: "POST",
@@ -36,7 +36,6 @@ export const CreatePostForm = async () => {
     <section className={styles.section}>
       <div className={styles.container}>
         <p className={styles.title}>Add post</p>
-
         <div className={styles.form_wrap}>
           <Form onSubmit={onSubmit} />
         </div>

@@ -1,18 +1,12 @@
 "use client";
 
-import {useForm, SubmitHandler} from "react-hook-form";
-import {signIn} from "next-auth/react";
 import Image from "next/image";
-
 import {useRouter} from "next/navigation";
+import {signIn} from "next-auth/react";
+import {useState} from "react";
+import {useForm, SubmitHandler} from "react-hook-form";
 
 import styles from "./LoginForm.module.css";
-import {useState} from "react";
-
-type Inputs = {
-  email: string;
-  password: string;
-};
 
 export const LoginForm = () => {
   const {
@@ -21,13 +15,13 @@ export const LoginForm = () => {
     watch,
     reset,
     formState: {errors},
-  } = useForm<Inputs>();
+  } = useForm<InputsLogin>();
 
   const [error, setError] = useState("");
 
   const {push} = useRouter();
 
-  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+  const onSubmit: SubmitHandler<InputsLogin> = async (data) => {
     try {
       const res = await signIn("login", {
         email: data.email,

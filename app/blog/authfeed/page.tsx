@@ -1,22 +1,14 @@
-import {authConfig} from "@/configs/auth";
 import {getServerSession} from "next-auth";
 
-const {NEXTAUTH_URL} = process.env;
+import {authConfig} from "@/configs/auth";
 
-type Post = {
-  _id: string;
-  title: string;
-  description: string;
-  owner: string;
-  comments: [];
-};
+const {NEXTAUTH_URL} = process.env;
 
 export default async function AuthfeedPage() {
   const session = await getServerSession(authConfig);
 
   const owner = session?.user.data._id;
 
-  // const res = await fetch("http://localhost:3000/api/post/authlist", {
   const res = await fetch(`${NEXTAUTH_URL}/api/post/authlist`, {
     method: "POST",
     headers: {"Content-Type": "application/json"},

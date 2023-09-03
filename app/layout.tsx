@@ -1,11 +1,12 @@
-import {Header} from "@/components/Header/Header";
 import type {Metadata} from "next";
 import {Poppins} from "next/font/google";
+
+import {Header} from "@/components/Header/Header";
 import {Footer} from "@/components/Footer/Footer";
+import {Providers} from "@/components/Providers/Providers";
 
 import "./globals.css";
 import styles from "./page.module.css";
-import {Providers} from "@/components/Providers/Providers";
 
 export const fetchCache = "force-no-store";
 

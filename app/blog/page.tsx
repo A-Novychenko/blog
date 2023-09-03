@@ -1,8 +1,9 @@
+import {getServerSession} from "next-auth";
+import {redirect} from "next/navigation";
+
 import {AddComment} from "@/components/AddComment/AddComment";
 import {CreatePostForm} from "@/components/CreatePostForm/CreatePostForm";
 import {authConfig} from "@/configs/auth";
-import {getServerSession} from "next-auth";
-import {redirect} from "next/navigation";
 
 const {NEXTAUTH_URL} = process.env;
 
@@ -27,10 +28,6 @@ export default async function FeedPage() {
     body: JSON.stringify({}),
     cache: "no-store",
   });
-
-  // const res = await fetch(`${NEXTAUTH_URL}/api/post/list`, {
-  //   cache: "no-store",
-  // });
 
   const {posts} = await res.json();
 

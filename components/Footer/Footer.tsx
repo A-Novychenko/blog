@@ -1,10 +1,10 @@
 import Link from "next/link";
+import Image from "next/image";
 import {FC} from "react";
 
 import {Logo} from "../Logo/Logo";
 
 import styles from "./Footer.module.css";
-import Image from "next/image";
 
 export const Footer: FC = () => {
   return (

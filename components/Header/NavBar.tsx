@@ -10,9 +10,6 @@ export const NavBar = () => {
   const {status} = session;
   const role = session?.data?.user?.data?.role;
 
-  console.log("session", session);
-  console.log("status", status);
-
   return (
     <nav className={styles.navWrap}>
       {session && role === "author" && (

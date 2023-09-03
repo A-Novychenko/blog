@@ -1,6 +1,7 @@
-import clientPromise from "@/services/mongodb";
-import {ObjectId} from "mongodb";
 import {NextRequest, NextResponse} from "next/server";
+import {ObjectId} from "mongodb";
+
+import clientPromise from "@/services/mongodb";
 
 export async function PUT(req: Request, res: Response) {
   const client = await clientPromise;
@@ -22,8 +23,6 @@ export async function PUT(req: Request, res: Response) {
   const newPost = await db
     .collection("posts")
     .findOneAndUpdate(_id, {$set: {comments: newData}});
-
-  // const post = await db.collection("posts").findOne(insertedId);
 
   return NextResponse.json({status: 201, data: newPost});
 }

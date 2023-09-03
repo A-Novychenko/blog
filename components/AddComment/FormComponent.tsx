@@ -1,5 +1,7 @@
 "use client";
+
 import {useState} from "react";
+
 import styles from "./AddComment.module.css";
 
 export const Form = ({onSubmit}: {onSubmit: any}) => {
