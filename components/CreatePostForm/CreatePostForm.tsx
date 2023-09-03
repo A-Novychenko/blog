@@ -26,7 +26,7 @@ export const CreatePostForm = async () => {
     });
 
     if (res.ok) {
-      // revalidatePath("/blog");
+      revalidatePath("/blog");
 
       console.log("GOOOOOOOD");
     }

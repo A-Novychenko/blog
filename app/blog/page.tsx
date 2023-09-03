@@ -23,9 +23,10 @@ export default async function FeedPage() {
   const res = await fetch(`${NEXTAUTH_URL}/api/post/list`, {
     // cache: "reload",
     // next: {revalidate: 1},
-    next: {
-      tags: ["blog"], // Invalidate with revalidateTag('blog') on-demand
-    },
+    // next: {
+    //   tags: ["blog"], // Invalidate with revalidateTag('blog') on-demand
+    // },
+    cache: "no-store",
   });
 
   const {posts} = await res.json();
