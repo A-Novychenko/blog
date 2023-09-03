@@ -25,5 +25,5 @@ export async function PUT(req: Request, res: Response) {
 
   // const post = await db.collection("posts").findOne(insertedId);
 
-  return NextResponse.json({status: 201, data: newPost, revalidated: true});
+  return NextResponse.json({status: 201, data: newPost});
 }
