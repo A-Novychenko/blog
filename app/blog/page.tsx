@@ -21,11 +21,6 @@ export default async function FeedPage() {
     redirect("/login");
   }
   const res = await fetch(`${NEXTAUTH_URL}/api/post/list`, {
-    // cache: "reload",
-    // next: {revalidate: 1},
-    // next: {
-    //   tags: ["blog"], // Invalidate with revalidateTag('blog') on-demand
-    // },
     cache: "no-store",
   });
 

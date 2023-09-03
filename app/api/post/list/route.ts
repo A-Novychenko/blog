@@ -12,7 +12,5 @@ export async function GET(req: Request, res: Response) {
   return NextResponse.json({
     status: 200,
     posts,
-    revalidated: true,
-    now: Date.now(),
   });
 }
