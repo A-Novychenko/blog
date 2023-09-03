@@ -18,8 +18,6 @@ export default async function AuthfeedPage() {
 
   const {posts} = await res.json();
 
-  console.log("posts", posts);
-
   return (
     <section>
       <div>

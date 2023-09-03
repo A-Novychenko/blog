@@ -10,10 +10,8 @@ export async function PUT(req: Request, res: Response) {
   const {_id: id, data} = await req.json();
 
   const _id = {_id: new ObjectId(id)};
-  console.log("_id", _id);
 
   const post = await db.collection("posts").findOne(_id);
-  console.log("post!!!!", post);
 
   const newData = [
     ...post?.comments,
