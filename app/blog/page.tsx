@@ -20,9 +20,17 @@ export default async function FeedPage() {
   if (session?.user.status === "unauthenticated") {
     redirect("/login");
   }
-  const res = await fetch(`${NEXTAUTH_URL}/api/post/list`, {
+
+  const res = await fetch(`${NEXTAUTH_URL}/api/post/authlist`, {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({}),
     cache: "no-store",
   });
+
+  // const res = await fetch(`${NEXTAUTH_URL}/api/post/list`, {
+  //   cache: "no-store",
+  // });
 
   const {posts} = await res.json();
 
