@@ -22,8 +22,8 @@ export default async function FeedPage() {
   }
   const res = await fetch(`${NEXTAUTH_URL}/api/post/list`, {
     // const res = await fetch("http://localhost:3000/api/post/list", {
-    // cache: "reload",
-    next: {revalidate: 1},
+    cache: "reload",
+    // next: {revalidate: 1},
   });
 
   const {posts} = await res.json();
