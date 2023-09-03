@@ -30,7 +30,8 @@ export const AddComment = async ({id}: {id: string}) => {
     });
 
     if (res.ok) {
-      revalidatePath("/blog");
+      // revalidatePath("/blog");
+
       console.log("GOOOOOOOD");
     }
   };
