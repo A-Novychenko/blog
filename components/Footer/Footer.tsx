@@ -15,8 +15,12 @@ export const Footer: FC = () => {
           <span className={styles.name}>Blog</span>
         </p>
         <div className={styles.linkWrap}>
-          <Link href="/register">A.Novychenko@outlook.com</Link>
-          <Link href="/register">+38 067 999 55 70</Link>
+          <Link href="mailto:a.Novychenko@outlook.com" target="_blanck">
+            A.Novychenko@outlook.com
+          </Link>
+          <Link href="/tel:+380679995570" target="_blanck">
+            +38 067 999 55 70
+          </Link>
           <Link href="https://github.com/A-Novychenko" target="_blanck">
             <Image src="/git.svg" alt="github" width={32} height={32} />
           </Link>
