@@ -19,14 +19,14 @@ export const CreatePostForm = async () => {
     const description = form.get("description")?.toString();
     const owner = userId;
 
-    const res = await fetch(`${NEXTAUTH_URL}api/post/create`, {
+    const res = await fetch(`${NEXTAUTH_URL}/api/post/create`, {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({title, description, owner: userId}),
     });
 
     if (res.ok) {
-      // revalidatePath("/blog");
+      revalidatePath("/blog");
 
       console.log("GOOOOOOOD");
     }
