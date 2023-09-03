@@ -13,5 +13,5 @@ export async function POST(req: Request, res: Response) {
 
   const post = await db.collection("posts").findOne(insertedId);
 
-  return NextResponse.json({status: 201, data: post});
+  return NextResponse.json({status: 201, data: post, revalidated: true});
 }
