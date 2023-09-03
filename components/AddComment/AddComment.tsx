@@ -5,6 +5,8 @@ import {revalidatePath} from "next/cache";
 import {Form} from "./FormComponent";
 import styles from "./AddComment.module.css";
 
+const {NEXTAUTH_URL} = process.env;
+
 export const AddComment = async ({id}: {id: string}) => {
   const session = await getServerSession(authConfig);
 
@@ -17,7 +19,8 @@ export const AddComment = async ({id}: {id: string}) => {
     const _id = id;
     const comment = form.get("comment")?.toString();
 
-    const res = await fetch("http://localhost:3000/api/post/comment", {
+    // const res = await fetch("http://localhost:3000/api/post/comment", {
+    const res = await fetch(`${NEXTAUTH_URL}/api/post/comment`, {
       method: "PUT",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({

@@ -5,6 +5,8 @@ import {Form} from "./FormComponent";
 
 import styles from "./CreatePostForm.module.css";
 
+const {NEXTAUTH_URL} = process.env;
+
 export const CreatePostForm = async () => {
   const session = await getServerSession(authConfig);
 
@@ -17,7 +19,7 @@ export const CreatePostForm = async () => {
     const description = form.get("description")?.toString();
     const owner = userId;
 
-    const res = await fetch("http://localhost:3000/api/post/create", {
+    const res = await fetch(`${NEXTAUTH_URL}api/post/create`, {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({title, description, owner: userId}),
