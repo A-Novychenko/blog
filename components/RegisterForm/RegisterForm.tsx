@@ -14,6 +14,8 @@ type Inputs = {
   role: string;
 };
 
+const {NEXTAUTH_URL} = process.env;
+
 export const RegisterForm = () => {
   const {
     register,
@@ -30,7 +32,8 @@ export const RegisterForm = () => {
   const onSubmit: SubmitHandler<Inputs> = async ({email, password, role}) => {
     setError("");
     try {
-      const res = await fetch("/api/user/registration", {
+      // const res = await fetch("/api/user/registration", {
+      const res = await fetch(`${NEXTAUTH_URL}/api/user/registration`, {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({email, password, role}),
