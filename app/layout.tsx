@@ -7,6 +7,8 @@ import "./globals.css";
 import styles from "./page.module.css";
 import {Providers} from "@/components/Providers/Providers";
 
+export const fetchCache = "force-no-store";
+
 const poppins = Poppins({subsets: ["latin"], weight: ["400", "500", "700"]});
 
 export const metadata: Metadata = {
