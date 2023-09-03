@@ -14,7 +14,7 @@ type Inputs = {
   role: string;
 };
 
-const {NEXTAUTH_URL} = process.env;
+// const { NEXTAUTH_URL } = process.env;
 
 export const RegisterForm = () => {
   const {
@@ -33,11 +33,15 @@ export const RegisterForm = () => {
     setError("");
     try {
       // const res = await fetch("/api/user/registration", {
-      const res = await fetch(`${NEXTAUTH_URL}/api/user/registration`, {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({email, password, role}),
-      });
+      // const res = await fetch(`${NEXTAUTH_URL}/api/user/registration`, {
+      const res = await fetch(
+        "https://blog-seven-neon-75.vercel.app//api/user/registration",
+        {
+          method: "POST",
+          headers: {"Content-Type": "application/json"},
+          body: JSON.stringify({email, password, role}),
+        }
+      );
 
       const {data} = await res.json();
 
@@ -55,7 +59,6 @@ export const RegisterForm = () => {
         const res = await signIn("login", {
           email: data.email,
           password: data.password,
-
           redirect: false,
         });
 
