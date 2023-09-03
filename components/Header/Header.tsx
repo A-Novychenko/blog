@@ -10,7 +10,7 @@ export const Header: FC = async () => {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        <Link href="/">
+        <Link href="/" className={styles.link_logo}>
           <Logo />
           <span className={styles.name}>Blog</span>
         </Link>

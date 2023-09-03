@@ -13,9 +13,13 @@ export const NavBar = () => {
   return (
     <nav className={styles.navWrap}>
       {session && role === "author" && (
-        <div>
-          <Link href="/blog">Feed</Link>
-          <Link href="/blog/authfeed">Auth feed</Link>
+        <div className={styles.link_wrap}>
+          <Link href="/blog" className={styles.link}>
+            Feed
+          </Link>
+          <Link href="/blog/authfeed" className={styles.link}>
+            Auth feed
+          </Link>
         </div>
       )}
       {session && role === "commentator" && (

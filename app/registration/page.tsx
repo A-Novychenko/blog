@@ -1,5 +1,15 @@
-import {RegisterForm} from "@/components/RegisterForm/RegisterForm";
+import {getServerSession} from "next-auth";
+import {redirect} from "next/navigation";
 
-export default function RegistrationPage() {
+import {RegisterForm} from "@/components/RegisterForm/RegisterForm";
+import {authConfig} from "@/configs/auth";
+
+export default async function RegistrationPage() {
+  const session = await getServerSession(authConfig);
+
+  if (session !== null) {
+    redirect("/blog");
+  }
+
   return <RegisterForm />;
 }

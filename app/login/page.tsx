@@ -1,5 +1,15 @@
-import {LoginForm} from "@/components/LoginForm/LoginForm";
+import {getServerSession} from "next-auth";
+import {redirect} from "next/navigation";
 
-export default function LoginPage() {
+import {LoginForm} from "@/components/LoginForm/LoginForm";
+import {authConfig} from "@/configs/auth";
+
+export default async function LoginPage() {
+  const session = await getServerSession(authConfig);
+
+  if (session !== null) {
+    redirect("/blog");
+  }
+
   return <LoginForm />;
 }

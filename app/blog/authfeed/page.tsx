@@ -2,6 +2,8 @@ import {getServerSession} from "next-auth";
 
 import {authConfig} from "@/configs/auth";
 
+import styles from "./authfeed.module.css";
+
 const {NEXTAUTH_URL} = process.env;
 
 export default async function AuthfeedPage() {
@@ -20,18 +22,26 @@ export default async function AuthfeedPage() {
 
   return (
     <section>
-      <div>
+      <ul className={styles.posts_wrap}>
         {posts &&
           posts.map((post: Post) => (
-            <li key={post._id}>
+            <li key={post._id} className={styles.post_item}>
               <h2>{post.title}</h2>
               <p>{post.description}</p>
-              {session && session.user.data.role === "commentator" && (
-                <button type="button">{`Comments ${post.comments.length}`}</button>
-              )}
+
+              <ul className={styles.comments_wrap}>
+                {post.comments.map(({comment, owner}, i) => (
+                  <li key={comment + owner + i}>
+                    <p>{comment}</p>
+                    <p
+                      className={styles.comment_author}
+                    >{`Author: ${owner}`}</p>
+                  </li>
+                ))}
+              </ul>
             </li>
           ))}
-      </div>
+      </ul>
     </section>
   );
 }
