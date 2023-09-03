@@ -1,7 +1,7 @@
-!(./public/readme/1.jpg)
-!(./public/readme/2.jpg)
-!(./public/readme/3.jpg)
-!(./public/readme/4.jpg)
+![Api](./public/readme/1.jpg)
+![Api](./public/readme/2.jpg)
+![Api](./public/readme/3.jpg)
+![Api](./public/readme/4.jpg)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
