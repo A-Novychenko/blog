@@ -3,17 +3,29 @@
 import Link from "next/link";
 import {signOut, useSession} from "next-auth/react";
 
-import styles from "./Heder.module.css";
+import styles from "./NavBar.module.css";
 
 export const NavBar = () => {
   const session = useSession();
   const {status} = session;
+  const role = session?.data?.user?.data?.role;
 
   console.log("session", session);
   console.log("status", status);
 
   return (
     <nav className={styles.navWrap}>
+      {session && role === "author" && (
+        <div>
+          <Link href="/blog">Feed</Link>
+          <Link href="/blog/authfeed">Auth feed</Link>
+        </div>
+      )}
+      {session && role === "commentator" && (
+        <div>
+          <Link href="/blog">Feed</Link>
+        </div>
+      )}
       {status === "unauthenticated" && (
         <>
           <Link href="/registration">Registration</Link>
@@ -23,12 +35,7 @@ export const NavBar = () => {
       {status === "authenticated" && (
         <button
           onClick={() => signOut({callbackUrl: "/"})}
-          style={{
-            width: 50,
-            height: 50,
-            color: "rgb(255, 0, 0)",
-            backgroundColor: "transparent",
-          }}
+          className={styles.logoutBtn}
         >
           Logout
         </button>

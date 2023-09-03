@@ -19,7 +19,7 @@ export default async function BlogLayout({
 
   return (
     <>
-      {session && session?.user?.data?.role === "author" && (
+      {/* {session && session?.user?.data?.role === "author" && (
         <div>
           <Link href="/blog/feed">Feed</Link>
           <Link href="/blog/authfeed">Auth feed</Link>
@@ -27,9 +27,9 @@ export default async function BlogLayout({
       )}
       {session && session?.user?.data?.role === "commentator" && (
         <div>
-          <Link href="/blog/feed">allposts</Link>
+          <Link href="/blog/feed">Feed</Link>
         </div>
-      )}
+      )} */}
 
       {children}
     </>

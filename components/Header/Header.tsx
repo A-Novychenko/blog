@@ -22,6 +22,17 @@ export const Header: FC = async () => {
           <Logo />
           <span className={styles.name}>Blog</span>
         </Link>
+        {/* {session && session?.user?.data?.role === "author" && (
+          <div>
+            <Link href="/blog/feed">Feed</Link>
+            <Link href="/blog/authfeed">Auth feed</Link>
+          </div>
+        )}
+        {session && session?.user?.data?.role === "commentator" && (
+          <div>
+            <Link href="/blog/feed">Feed</Link>
+          </div>
+        )} */}
         <NavBar />
       </div>
     </header>

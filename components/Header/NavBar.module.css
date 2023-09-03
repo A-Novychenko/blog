@@ -1,0 +1,15 @@
+.logoutBtn {
+    padding: 20;
+    color: "rgb(255, 255, 255)";
+    background-color: transparent;
+    border: none;
+
+    font-size: 20px;
+
+    cursor: pointer;
+}
+
+.logoutBtn:hover,
+.logoutBtn:focus {
+    transform: scale(1.025);
+}
