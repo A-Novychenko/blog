@@ -1,12 +1,12 @@
 "use client";
 
 import {useForm, SubmitHandler, set} from "react-hook-form";
-import {signIn} from "next-auth/react";
+import {signIn, useSession} from "next-auth/react";
 import Image from "next/image";
 import {useRouter} from "next/navigation";
 
 import styles from "./RegisterForm.module.css";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 export const RegisterForm = () => {
   const {
@@ -20,6 +20,15 @@ export const RegisterForm = () => {
   const {push} = useRouter();
 
   const [error, setError] = useState("");
+
+  const session = useSession();
+  useEffect(() => {
+    console.log("session", session);
+
+    if (session?.status === "authenticated") {
+      push("/blog");
+    }
+  }, [push, session]);
 
   const onSubmit: SubmitHandler<InputsRegister> = async ({
     email,
