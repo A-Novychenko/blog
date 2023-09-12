@@ -49,13 +49,13 @@ export const RegisterForm = () => {
       }
 
       if (res.status === 200) {
-        const res = await signIn("login", {
+        const resp = await signIn("login", {
           email: data.email,
           password: data.password,
           redirect: false,
         });
 
-        if (res?.ok) {
+        if (resp?.ok) {
           push("/blog");
         }
       }
