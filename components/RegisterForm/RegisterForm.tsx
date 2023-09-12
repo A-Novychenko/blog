@@ -32,6 +32,7 @@ export const RegisterForm = () => {
         "https://blog-seven-neon-75.vercel.app//api/user/registration",
         {
           method: "POST",
+          mode: "no-cors",
           headers: {"Content-Type": "application/json"},
           body: JSON.stringify({email, password, role}),
         }
